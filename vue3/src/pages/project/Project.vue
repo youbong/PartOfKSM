@@ -1,44 +1,77 @@
 <template>
   <PageWithLayout>
-    <h2 class="screen_out">프로젝트</h2>
-    <ul class="list_project_menu">
-      <li v-for="(item,index) in projectMenuList" :key="index">
-        <router-link :to="item.menuPath" class="link_menu">
-          <!-- <p class="desc_menu">{{ item.menuDesc }}</p> -->
-          <!-- <span class="txt_menu">{{ item.menuNm }}</span> -->
-          {{ item.menuNm }}
-        </router-link>
-      </li>
-    </ul>
+    <div class="section_comm">
+      <h2 class="screen_out">프로젝트</h2>
+      <ul class="list_project">
+        <!-- <li v-for="( item, index ) in projectData" :key="index">
+          <button type="button" class="btn_project">
+            <div class="thumb_project">
+              <img :src="'https://remain.ashlab.synology.me/ksm/'+item.img" class="img_g" alt="">
+            </div>
+            <strong class="tit_project">{{ item.title }}</strong>
+            <p class="desc_project">{{ item.desc }}</p>
+          </button>
+        </li> -->
+        <ProjectListItem
+          v-for="( item, index ) in projectData"
+          :key="index"
+          :itemData="item"
+          @onClickProjectPop="onClickProjectPop"/>
+      </ul>
+    </div>
+    <ProjectDetailPopup
+      v-if="isProjectDetailPop"
+      :itemData="projectDetailItemData"
+      @onClickClosePop="onClickCloseProjectPop"/>
   </PageWithLayout>
 </template>
 
 <script>
 import PageWithLayout from '@/components/common/layout/PageWithLayout';
+import ProjectListItem from '@/components/project/ProjectListItem';
+import ProjectDetailPopup from '@/components/project/ProjectDetailPopup';
+
+import { projectData } from '@/constants/projectData';
+import { projectDetailData } from '@/constants/projectDetailData';
 
 export default {
   name: 'Project',
-  components:{
-    PageWithLayout
+  components: {
+    PageWithLayout,
+    ProjectListItem,
+    ProjectDetailPopup
   },
   data(){
     return{
-      projectMenuList:[
-        {menuNm: 'All', menuPath: this.$routerPath.PROJECT},
-        {menuNm: '디케이테크인', menuPath: this.$routerPath.PROJECT},
-        {menuNm: '싸이월드', menuPath: this.$routerPath.PROJECT},
-        {menuNm: '주식회사 리메인', menuPath: this.$routerPath.PROJECT},
-        {menuNm: '한빛소프트', menuPath: this.$routerPath.PROJECT},
-        {menuNm: 'NHN ENTERTAINMENT', menuPath: this.$routerPath.PROJECT},
-      ]
+      isProjectDetailPop: false,
+      projectDetailItemData: {}
+    }
+  },
+  computed: {
+    projectData(){
+      return projectData;
+    },
+    projectDetailData(){
+      return projectDetailData;
+    }
+  },
+  methods: {
+    onClickProjectPop( selectedId ){
+      this.projectDetailItemData = projectDetailData.filter(item => item.id == selectedId)[0];
+      this.isProjectDetailPop = true;
+    },
+    onClickCloseProjectPop(){
+      this.projectDetailItemData = {};
+      this.isProjectDetailPop = false;
     }
   }
 }
 </script>
 <style scoped>
-/* .list_project_menu li + li{margin-top:20px} */
-.list_project_menu li{display:inline-block;vertical-align:top}
-.list_project_menu .link_menu{display:block;padding:5px 10px;font-size:14px;}
-/* .list_project_menu .desc_menu{font-size:12px;line-height:16px;color:#555}
-.list_project_menu .txt_menu{display:block;font-size:15px;line-height:18px;color:#222} */
+.section_comm{padding:50px 20px 30px}
+
+.list_project{overflow:hidden}
+.list_project >>> li{float:left;width:33.333%;margin-bottom:30px}
+/* .list_project >>> li:nth-child(3n-2) .btn_project{margin-left:0}
+.list_project >>> li:nth-child(n+4){margin-top:30px} */
 </style>

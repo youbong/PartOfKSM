@@ -1,4 +1,4 @@
-const historyDataList = [
+export const historyDataList = [
   {
     date: '2018.03 ~',
     companyNm: '디케이테크인 a kakao company',
@@ -122,5 +122,3 @@ const historyDataList = [
     ],
   },
 ]
-
-export default historyDataList;

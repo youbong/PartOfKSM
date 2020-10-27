@@ -1,9 +1,7 @@
 <template>
   <div id="KsmContent" class="cont_ksm">
     <div id="mArticle">
-      <div class="section_comm">
-        <slot/>
-      </div>
+      <slot/>
     </div>
   </div>
 </template>
@@ -14,5 +12,6 @@ export default {
 }
 </script>
 <style scoped>
-.cont_ksm{min-height:calc(100vh - 60px - 55px);padding:30px 20px;box-sizing:border-box}
+.cont_ksm{min-height:calc(100vh - 55px);padding-top:100px;box-sizing:border-box}
+.cont_ksm #mArticle > .section_comm{max-width:1000px;margin:0 auto;box-sizing:border-box}
 </style>

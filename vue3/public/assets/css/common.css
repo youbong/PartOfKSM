@@ -23,16 +23,53 @@ address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 .show{display:block}
 .hide{display:none}
 
+.img_g{display:block}
+.link_g{display:block;text-decoration:underline}
+
+/* -- ico -- */
+.ico_ksm{display:inline-block;overflow:hidden;background:url(../images/ico_ksm.png) no-repeat;background-size:50px 20px;font-size:1px;line-height:0;color:transparent;text-indent:-9999px;vertical-align:top}
+.ico_star1{width:13px;height:13px;background-position:0 0}
+.ico_star2{width:27px;height:13px;background-position:0 0}
+.ico_star3{width:41px;height:13px;background-position:0 0}
+
 .area_left{float:left}
 .area_right{float:right}
 
-.tbl_head{overflow:hidden;padding:5px 0 4px}
-.tbl_head .tit_head{display:block;font-weight:normal;font-size:12px;}
-.tbl_head .desc_tip{font-size:11px;color:#555}
-.tbl_comm + .tbl_head{padding-top:15px}
+.tbl_head{overflow:hidden;padding:5px 0 8px}
+.tbl_head .tit_head{display:block;font-weight:normal;font-size:14px;line-height:20px}
+.tbl_head .desc_tip{font-size:11px;line-height:20px;color:#555}
+.tbl_comm + .tbl_head{padding-top:30px}
 
 .tbl_comm{border-top:1px solid #222}
 .tbl_comm table{min-width:100%;border:0 none;border-collapse:collapse;border-spacing:0;table-layout:fixed}
-.tbl_comm thead th{padding:10px 12px 8px;border-bottom:1px solid #e1e1e1;font-weight:normal;font-size:12px;line-height:18px;letter-spacing:-.05em;background-color:#fbfbfb;color:#222}
-.tbl_comm tbody td{padding:8px 12px;border-bottom:1px solid #e1e1e1;font-size:12px;line-height:18px;letter-spacing:-.05em}
+.tbl_comm thead th{padding:15px 12px;border-bottom:1px solid #e1e1e1;font-weight:normal;font-size:13px;line-height:18px;letter-spacing:-.05em;background-color:#fbfbfb;color:#222}
+.tbl_comm tbody td{padding:15px 24px;border-bottom:1px solid #e1e1e1;font-size:13px;line-height:18px;letter-spacing:-.05em}
 .tbl_comm .align_center{text-align:center}
+
+/* 포인트 스타일 타이틀 */
+.tit_point{font-weight:bold;padding:0 8px;color:#222}
+.tit_point:after{display:block;height:8px;margin:-10px -8px 0;border-radius:4px;background-color:rgba(25,189,155,.15);content:''}
+
+/* list_dot */
+.list_dot li{position:relative;padding-left:10px}
+.list_dot li:after{position:absolute;top:13px;left:0;width:2px;height:2px;background-color:#555;content:''}
+
+/* list_basic */
+.list_basic{overflow:hidden}
+.list_basic dt{float:left;padding:4px 8px 2px;font-size:11px;line-height:14px;border:1px solid #e1e1e1;border-radius:4px}
+.list_basic dd{overflow:hidden;padding-left:10px;font-size:14px;line-height:22px;word-wrap:break-word;word-break:keep-all}
+.list_basic dt + dd + dt,
+.list_basic dt + dd + dt + dd{margin-top:8px}
+.list_basic + .tbl_head{margin-top:25px}
+
+/* list_dictionary */
+.list_dictionary dl{overflow:hidden}
+.list_dictionary dt{float:left;font-size:15px;line-height:20px}
+.list_dictionary dd{overflow:hidden;padding-left:15px;font-size:15px;line-height:20px;color:#555}
+.list_dictionary+ .list_dictionary{margin-top:20px}
+
+/* list_detail */
+.list_detail dt{display:inline-block;margin-bottom:8px;font-size:18px;line-height:20px;vertical-align:top}
+.list_detail dd{display:block;padding-left:10px;font-size:15px;line-height:28px;color:#555}
+.list_detail dd + dd{margin-top:12px}
+.list_detail + .list_detail{margin-top:40px}

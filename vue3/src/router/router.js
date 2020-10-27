@@ -9,14 +9,6 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: routerPath.INTRO,
-    //   name:'Intro',
-    //   meta: {
-    //     menuNm: '인트로',
-    //   },
-    //   component: routerComponent.INTRO,
-    // },
     {
       path: routerPath.PROFILE,
       name:'Profile',
@@ -32,14 +24,6 @@ const router = new Router({
         menuNm: 'PROJECT',
       },
       component: routerComponent.PROJECT,
-    },
-    {
-      path: routerPath.INTRODUCE,
-      name:'Introduce',
-      meta: {
-        menuNm: 'INTRODUCE',
-      },
-      component: routerComponent.INTRODUCE,
     },
     { path: '*', redirect: routerPath.PROFILE}
   ]
