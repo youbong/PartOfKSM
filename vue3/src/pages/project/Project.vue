@@ -49,11 +49,8 @@ export default {
   },
   computed: {
     projectData(){
-      return projectData;
+      return projectData.reverse();
     },
-    projectDetailData(){
-      return projectDetailData;
-    }
   },
   methods: {
     onClickProjectPop( selectedId ){

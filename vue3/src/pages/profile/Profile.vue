@@ -140,7 +140,7 @@
       </div>
       <div class="profile_item profile_coverletter">
         <h3 class="tit_profile">COVERLETTER</h3>
-        <p class="area_cover_letter" v-html="coverLetterData"></p>
+        <CoverLetter />
       </div>
       <div class="profile_item profile_contact">
         <h3 class="screen_out">연락하기</h3>
@@ -153,6 +153,7 @@
 <script>
 import PageWithLayout from '@/components/common/layout/PageWithLayout';
 import JobItem from '@/components/profile/JobItem';
+import CoverLetter from '@/components/profile/CoverLetter';
 
 import { historyDataList } from '@/constants/profileHistoryData';
 import { performanceDataList, performanceSummaryData } from '@/constants/profilePerformanceData';
@@ -162,7 +163,8 @@ export default {
   name: 'Profile',
   components:{
     PageWithLayout,
-    JobItem
+    JobItem,
+    CoverLetter
   },
   computed: {
     historyDataList(){

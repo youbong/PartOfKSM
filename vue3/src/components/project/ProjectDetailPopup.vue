@@ -5,7 +5,7 @@
       <div class="area_layer">
         <div class="layer_head">
           <strong class="tit_layer">{{ itemData.title }}</strong>
-          <span class="txt_company">{{ itemData.companyNm }}</span>
+          <span class="txt_company">worked in {{ itemData.companyNm }}</span>
         </div>
         <div class="layer_body">
           <dl class="list_dictionary">

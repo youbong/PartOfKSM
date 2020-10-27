@@ -467,7 +467,7 @@ export const projectDetailData = [
     job: '시스템 기획',
     date: '2018년 03월 ~ 재직중',
     aim: 'Ai 기술 내 Minimi api 와 MRC api 를 내부적으로 테스트 및 외부 오픈하는 기술 데모 앱',
-    orientation: '카카오 내부 minimi(카카오 미니 음성 api), MRC(Machine Reading Comprehension) - 기계 독해 엔진 기술 적',
+    orientation: '카카오 내부 minimi(카카오 미니 음성 api), MRC(Machine Reading Comprehension) - 기계 독해 엔진 기술 적용',
     jobDetialDataList: [
       'IA (Interface Architecture) 수립',
       '메뉴 트리 설계',
