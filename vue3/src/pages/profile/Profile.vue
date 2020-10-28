@@ -249,10 +249,6 @@ export default {
 .profile_item .list_exprience{margin-top:20px}
 .profile_item .list_exprience li + li{margin-top:60px}
 .profile_item .list_exprience .tit_point{display:inline-block;margin-bottom:25px;font-size:18px;line-height:20px;vertical-align:top}
-/* .profile_item .desc_history{display:block;font-size:14px;line-height:24px} */
-
-/* 자기소개서 */
-.profile_item .area_cover_letter{padding-top:20px;font-size:14px;line-height:22px}
 
 .profile_contact .link_contact{display:block;width:300px;margin:0 auto;padding:12px 10px 10px;background-color:#19BD9B;border-radius:2px;font-weight:bold;font-size:15px;line-height:22px;color:#fff;text-align:center}
 </style>
