@@ -24,6 +24,6 @@ export default{
 .thumb_project .img_g{width:100%}
 .tit_project,
 .desc_project{overflow:hidden;letter-spacing:-.05em;white-space:nowrap;text-overflow:ellipsis}
-.tit_project{display:block;margin-top:10px;font-size:14px;line-height:18px}
+.tit_project{display:block;margin-top:10px;font-weight:normal;font-size:15px;line-height:18px}
 .desc_project{margin-top:4px;font-size:13px;line-height:18px}
 </style>

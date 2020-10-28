@@ -12,7 +12,7 @@ input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox
 input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset']{-webkit-appearance:none;border-radius:0}
 input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
 body{background:#fff}
-body,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:'NotoSansKR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',sans-serif;color:#333;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none}
+body,th,td,input,select,textarea,button,pre{font-size:12px;line-height:1.5;font-family:'NotoSansKR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',sans-serif;color:#333;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none}
 a{color:#333;text-decoration:none}
 a:active, a:hover{text-decoration:none}
 address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
@@ -23,14 +23,21 @@ address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 .show{display:block}
 .hide{display:none}
 
+html{-ms-overflow-style:none;scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
+
 .img_g{display:block}
 .link_g{display:block;text-decoration:underline}
 
 /* -- ico -- */
-.ico_ksm{display:inline-block;overflow:hidden;background:url(../images/ico_ksm.png) no-repeat;background-size:50px 20px;font-size:1px;line-height:0;color:transparent;text-indent:-9999px;vertical-align:top}
+.ico_ksm{display:inline-block;overflow:hidden;background:url(../images/ico_ksm.png) no-repeat;background-size:90px 50px;font-size:1px;line-height:0;color:transparent;text-indent:-9999px;vertical-align:top}
 .ico_star1{width:13px;height:13px;background-position:0 0}
 .ico_star2{width:27px;height:13px;background-position:0 0}
 .ico_star3{width:41px;height:13px;background-position:0 0}
+
+.ico_kakaotalk{width:30px;height:30px;background-position:0 -20px}
+.ico_facebook{width:30px;height:30px;background-position:-30px -20px}
+.ico_mail{width:30px;height:30px;background-position:-60px -20px}
 
 .area_left{float:left}
 .area_right{float:right}

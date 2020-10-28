@@ -65,10 +65,15 @@ export default {
 }
 </script>
 <style scoped>
-.section_comm{padding:50px 20px 30px}
+.section_comm{padding:50px 12px 30px}
 
 .list_project{overflow:hidden}
-.list_project >>> li{float:left;width:33.333%;margin-bottom:30px}
-/* .list_project >>> li:nth-child(3n-2) .btn_project{margin-left:0}
-.list_project >>> li:nth-child(n+4){margin-top:30px} */
+.list_project >>> li{float:left;width:25%;margin-bottom:30px}
+
+@media all and (max-width:800px){
+  .list_project >>> li{width:33.333%}
+}
+@media all and (max-width:600px){
+  .list_project >>> li{width:50%}
+}
 </style>
