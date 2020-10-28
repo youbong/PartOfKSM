@@ -4,6 +4,8 @@ import router from './router/router'
 import routerPath from './router/routerPath'
 // import apiPath from './services/apiPath'
 
+import store from './store';
+
 Vue.config.productionTip = false
 
 Vue.prototype.$routerPath = routerPath;
@@ -12,6 +14,6 @@ Vue.prototype.$routerPath = routerPath;
 Vue.wrap
 new Vue({
   router,
-  // store,
+  store,
   render: h => h(App),
 }).$mount('#app')

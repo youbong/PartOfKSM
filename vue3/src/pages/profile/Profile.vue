@@ -1,24 +1,8 @@
 <template>
   <PageWithLayout>
     <div class="section_comm">
-      <h2 class="screen_out">프로필( INFO / SKILL / EXPRIENCE / COVERLETTER )</h2>
-      <!-- <nav class="nav_profile_menu">
-        <ul class="list_menu">
-          <li>
-            <button class="btn_menu">INFO</button>
-          </li>
-          <li>
-            <button class="btn_menu">SKILL</button>
-          </li>
-          <li>
-            <button class="btn_menu">EXPRIENCE</button>
-          </li>
-          <li>
-            <button class="btn_menu">COVER<br>LETTER</button>
-          </li>
-        </ul>
-      </nav> -->
-      <div class="profile_item profile_info">
+      <h2 class="screen_out">프로필</h2>
+      <div :class="['profile_item profile_info',sectionClassOn('Info')]" ref="Info">
         <h3 class="tit_profile">INFO</h3>
         <dl class="list_dictionary">
           <dt class="tit_point">Name</dt>
@@ -45,7 +29,7 @@
           <dd>공동체 내 전반적인 사내 그룹웨어 시스템 플랫폼 개발</dd>
         </dl>
       </div>
-      <div class="profile_item profile_skill">
+      <div :class="['profile_item profile_skill',sectionClassOn('Skill')]" ref="Skill">
         <h3 class="tit_profile">SKILL</h3>
         <dl class="list_detail">
           <dt class="tit_point">Performance</dt>
@@ -65,7 +49,7 @@
           </dd>
         </dl>
       </div>
-      <div class="profile_item profile_exprience">
+      <div :class="['profile_item profile_exprience',sectionClassOn('Exprience')]" ref="Exprience">
         <h3 class="tit_profile">EXPRIENCE</h3>
         <ul class="list_exprience">
           <li v-for="(item, index) in historyDataList" :key="index">
@@ -138,14 +122,15 @@
           </li>
         </ul>
       </div>
-      <div class="profile_item profile_coverletter">
+      <div :class="['profile_item profile_coverletter',sectionClassOn('CoverLetter')]" ref="CoverLetter">
         <h3 class="tit_profile">COVERLETTER</h3>
+        <strong class="tit_point">COVERLETTER</strong>
         <CoverLetter />
       </div>
-      <div class="profile_item profile_contact">
+      <!-- <div class="profile_item profile_contact">
         <h3 class="screen_out">연락하기</h3>
         <a href="https://open.kakao.com/o/s5J8sZV" class="link_contact" target="_blank">카카오톡 오픈채팅 CONTACT</a>
-      </div>
+      </div> -->
     </div>
   </PageWithLayout>
 </template>
@@ -155,18 +140,26 @@ import PageWithLayout from '@/components/common/layout/PageWithLayout';
 import JobItem from '@/components/profile/JobItem';
 import CoverLetter from '@/components/profile/CoverLetter';
 
-import { historyDataList } from '@/constants/profileHistoryData';
-import { performanceDataList, performanceSummaryData } from '@/constants/profilePerformanceData';
-import { coverLetterData } from '@/constants/profileCoverLetter';
+import { mapState } from 'vuex';
+import { CHANGE_SUB_MENU_ACTION } from '@/store';
+import { historyDataList } from '@/constants/profile/profileHistoryData';
+import { performanceDataList, performanceSummaryData } from '@/constants/profile/profilePerformanceData';
+import { coverLetterData } from '@/constants/profile/profileCoverLetter';
+
+import Scrolled from '@/mixins/Scrolled'
 
 export default {
   name: 'Profile',
+  mixins: [ Scrolled ],
   components:{
     PageWithLayout,
     JobItem,
     CoverLetter
   },
   computed: {
+    ...mapState({
+      subMenuId: state => state.common.subMenuId,
+    }),
     historyDataList(){
       return historyDataList;
     },
@@ -180,7 +173,23 @@ export default {
       return coverLetterData;
     },
   },
+  watch:{
+    onSectionNm(){
+      this.$store.dispatch(CHANGE_SUB_MENU_ACTION,this.onSectionNm);
+    }
+  },
   methods:{
+    sectionClassOn( sectionId ){
+      if(sectionId == this.subMenuId){
+        // this.setSectionOn(this.$refs[sectionId]);
+        return 'on';
+      }
+      return '';
+    },
+    // setSectionOn(target){
+    //   if(!target || !target.offsetTop) return;
+    //   window.scrollTo( 0,target.offsetTop - 120 );
+    // },
     skillPointStar(skillPoint){
       switch (skillPoint) {
         case 'Ⅰ':
@@ -215,7 +224,7 @@ export default {
 }
 </script>
 <style scoped>
-.section_comm{padding:50px 20px 30px 20px}
+.section_comm{padding:40px 20px 30px 20px}
 /* @media all and (max-width:1000px){
   .section_comm{padding:30px 90px 30px 20px}
 } */
@@ -228,11 +237,21 @@ export default {
 .nav_profile_menu .btn_menu{display:block;width:90px;padding:0 5px;font-size:14px;line-height:16px;text-align:right}
 
 /* 항목 공통 */
-/* .profile_item{background-color:#fff;box-shadow:0 5px 15px 0 rgba(0,0,0,.05);padding:30px 20px} */
 .profile_item + .profile_item{margin-top:80px}
 
-.profile_item .tit_profile{display:block;font-size:24px;line-height:26px;color:#006b55}
-.profile_item .tit_profile + dl{margin-top:20px}
+/* pc */
+@media all and (min-width:1000px){ 
+  .profile_item{background-color:#fff;box-shadow:0 5px 15px 0 rgba(0,0,0,.05);padding:30px}
+  .profile_item + .profile_item{margin-top:20px}
+}
+
+.profile_item .tit_profile{display:block;padding-bottom:10px;font-size:16px;line-height:18px;text-align:right}
+.profile_item .tit_profile + dl{margin-top:30px}
+.profile_item .tit_profile + .list_exprience,
+.profile_item .tit_profile + .tit_point{margin-top:40px}
+
+.profile_item strong.tit_point{display:inline-block;font-size:18px;line-height:20px;vertical-align:top}
+.profile_item strong.tit_point + dl{margin-top:25px}
 /* .profile_item dl{padding-left:20px} */
 
 /* 퍼포먼스 */
@@ -246,9 +265,7 @@ export default {
 .profile_item .list_dot{margin-top:4px}
 
 /* 히스토리 */
-.profile_item .list_exprience{margin-top:20px}
 .profile_item .list_exprience li + li{margin-top:60px}
-.profile_item .list_exprience .tit_point{display:inline-block;margin-bottom:25px;font-size:18px;line-height:20px;vertical-align:top}
 
 .profile_contact .link_contact{display:block;width:300px;margin:0 auto;padding:12px 10px 10px;background-color:#19BD9B;border-radius:2px;font-weight:bold;font-size:15px;line-height:22px;color:#fff;text-align:center}
 </style>

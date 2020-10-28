@@ -3,7 +3,7 @@ import routerPath from '@/router/routerPath'
 export const menuDataList = [
   {
     menuNm: 'PROFILE',
-    menuClassNm: 'porofile',
+    menuClassNm: 'profile',
     menuPath: routerPath.PROFILE,
     subMenuData: [
       { menuNm: 'INFO', menuId: 'Info' },

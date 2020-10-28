@@ -1,6 +1,7 @@
 export const projectDetailData = [
   {
     id: 1,
+    catagory:'Nhn',
     title:'모바일 게임 운영툴 기획',
     companyNm:'NHN 엔터테인먼트',
     job: '서비스 운영, 운영툴 기획',
@@ -22,6 +23,7 @@ export const projectDetailData = [
   },
   {
     id: 2,
+    catagory:'HanbitSoft',
     title:'FC Manager 글로벌 서비스 기획',
     companyNm:'한빛 소프트',
     job: '컨텐츠 기획, 밸런스 기획',
@@ -46,6 +48,7 @@ export const projectDetailData = [
   },
   {
     id: 3,
+    catagory:'Remain',
     title:'시설물관리 시스템',
     companyNm:'주식회사 리메인',
     job: '서비스 기획 및 개발',
@@ -71,7 +74,8 @@ export const projectDetailData = [
   },
   {
     id: 4,
-    title:'시설물관리 시스템',
+    catagory:'Remain',
+    title:'투넘버 문자',
     companyNm:'주식회사 리메인',
     job: '서비스 기획 및 개발',
     date: '2015년 09월 ~ 2017년 08월',
@@ -92,6 +96,7 @@ export const projectDetailData = [
   },
   {
     id: 5,
+    catagory:'Cyworld',
     title:'뉴스 QUE',
     companyNm:'싸이월드',
     job: '계정 소셜 로그인 통합 연동 구조 설계',
@@ -113,6 +118,7 @@ export const projectDetailData = [
   },
   {
     id: 6,
+    catagory:'Cyworld',
     title:'싸이월드 사람찾기 개편',
     companyNm:'싸이월드',
     job: '사람찾기 개편',
@@ -133,6 +139,7 @@ export const projectDetailData = [
   },
   {
     id: 7,
+    catagory:'Cyworld',
     title:'싸이월드 앱 리뉴얼',
     companyNm:'싸이월드',
     job: '앱 리뉴얼',
@@ -154,6 +161,7 @@ export const projectDetailData = [
   },
   {
     id: 8,
+    catagory:'DkTechin',
     title:'휴가 시스템',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -175,6 +183,7 @@ export const projectDetailData = [
   },
   {
     id: 9,
+    catagory:'DkTechin',
     title:'MLB (Music License Bank) 개편',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -196,6 +205,7 @@ export const projectDetailData = [
   },
   {
     id: 10,
+    catagory:'DkTechin',
     title:'자산관리 시스템',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -218,6 +228,7 @@ export const projectDetailData = [
   },
   {
     id: 11,
+    catagory:'DkTechin',
     title:'구매(입찰) 시스템',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -240,6 +251,7 @@ export const projectDetailData = [
   },
   {
     id: 12,
+    catagory:'DkTechin',
     title:'I- Connector',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -260,6 +272,7 @@ export const projectDetailData = [
   },
   {
     id: 13,
+    catagory:'DkTechin',
     title:'카카오 프렌즈 홈킷',
     companyNm:'디케이테크인',
     job: '기획 지원, ios 개발',
@@ -283,6 +296,7 @@ export const projectDetailData = [
   },
   {
     id: 14,
+    catagory:'DkTechin',
     title:'클래스노트 앱 에디터 모듈',
     companyNm:'디케이테크인',
     job: '기획 지원, ios 개발',
@@ -301,6 +315,7 @@ export const projectDetailData = [
   },
   {
     id: 15,
+    catagory:'DkTechin',
     title:'음성데모앱(STTS)',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -322,6 +337,7 @@ export const projectDetailData = [
   },
   {
     id: 16,
+    catagory:'DkTechin',
     title:'데모앱 다운로드 페이지',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -342,6 +358,7 @@ export const projectDetailData = [
   },
   {
     id: 17,
+    catagory:'DkTechin',
     title:'Speech Api 웹',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -358,6 +375,7 @@ export const projectDetailData = [
   },
   {
     id: 18,
+    catagory:'DkTechin',
     title:'모바일 앱 관리 시스템',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -375,6 +393,7 @@ export const projectDetailData = [
   },
   {
     id: 19,
+    catagory:'DkTechin',
     title:'크라우드 소싱 툴/운영툴',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -396,6 +415,7 @@ export const projectDetailData = [
   },
   {
     id: 20,
+    catagory:'DkTechin',
     title:'스타일 트랜스퍼',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -418,6 +438,7 @@ export const projectDetailData = [
   },
   {
     id: 21,
+    catagory:'DkTechin',
     title:'SR(Super Resolution) 데모앱',
     companyNm:'디케이테크인',
     job: '서비스 기획',
@@ -439,6 +460,7 @@ export const projectDetailData = [
   },
   {
     id: 22,
+    catagory:'DkTechin',
     title:'주차 관리 앱 & 운영툴',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -462,6 +484,7 @@ export const projectDetailData = [
   },
   {
     id: 23,
+    catagory:'DkTechin',
     title:'스몰톡',
     companyNm:'디케이테크인',
     job: '시스템 기획',
@@ -484,6 +507,7 @@ export const projectDetailData = [
   },
   {
     id: 24,
+    catagory:'DkTechin',
     title:'카카오 프렌즈 재고 관리 프로세스 개편',
     companyNm:'디케이테크인',
     job: '플랫폼 기획',

@@ -1,6 +1,6 @@
 <template>
-  <div id="KsmWrap" class="wrap_ksm">
-    <Header />
+  <div id="KsmWrap" :class="['wrap_ksm','theme_'+themeData]">
+    <Header :themeData="themeData" />
     <hr class="hide">
     <Content>
       <slot/>
@@ -24,6 +24,9 @@
 import Header from './header/Header'
 import Content from './content/Content'
 import Footer from './footer/Footer'
+
+import { themeData } from '@/constants/common/themeData'
+
 export default {
   name: 'PageWithLayout',
   components: {
@@ -31,36 +34,10 @@ export default {
     Content,
     Footer
   },
-  // mounted(){
-  //   this.setHeadSection();
-  //   this.setBodySection();
-  //   this.setBodyRight();
-  // },
-  // data(){
-  //   return{
-  //     isHeadSection: false,
-  //     isBodySection: false,
-  //     isBodyRight: false,
-  //     bodyRightType:''
-  //   }
-  // },
-  // methods: {
-  //   setHeadSection(){
-  //     const checkSlot = Boolean(this.$slots['headSection']);
-  //     // console.log('setHeadSection',checkSlot);
-  //     this.isHeadSection = checkSlot;
-  //   },
-  //   setBodySection(){
-  //     const checkSlot = Boolean(this.$slots['bodySection']);
-  //     // console.log('setBodySection',checkSlot);
-  //     this.isBodySection = checkSlot;
-  //   },
-  //   setBodyRight(){
-  //     const checkSlot = Boolean(this.$slots['bodyRight']);
-  //     // console.log('setBodyRight',checkSlot);
-  //     this.isBodyRight = checkSlot;
-  //     this.bodyRightType = this.isBodyRight ? this.$slots['bodyRight'][0].componentOptions.tag:'';
-  //   },
-  // }
+  computed: {
+    themeData(){
+      return themeData;
+    }
+  }
 }
 </script>

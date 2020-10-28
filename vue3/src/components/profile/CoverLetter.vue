@@ -54,5 +54,5 @@ SI 형태의 업무에서는 클라이언트와 내부 담당자 간의 소통 �
 </script>
 
 <style scoped>
-.area_cover_letter{padding-top:20px;font-size:14px;line-height:22px;white-space:pre-line}
+.area_cover_letter{padding-top:20px;font-size:15px;line-height:24px;white-space:pre-line}
 </style>

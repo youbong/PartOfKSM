@@ -3,15 +3,6 @@
     <div class="section_comm">
       <h2 class="screen_out">프로젝트</h2>
       <ul class="list_project">
-        <!-- <li v-for="( item, index ) in projectData" :key="index">
-          <button type="button" class="btn_project">
-            <div class="thumb_project">
-              <img :src="'https://remain.ashlab.synology.me/ksm/'+item.img" class="img_g" alt="">
-            </div>
-            <strong class="tit_project">{{ item.title }}</strong>
-            <p class="desc_project">{{ item.desc }}</p>
-          </button>
-        </li> -->
         <ProjectListItem
           v-for="( item, index ) in projectData"
           :key="index"
@@ -31,8 +22,9 @@ import PageWithLayout from '@/components/common/layout/PageWithLayout';
 import ProjectListItem from '@/components/project/ProjectListItem';
 import ProjectDetailPopup from '@/components/project/ProjectDetailPopup';
 
-import { projectData } from '@/constants/projectData';
-import { projectDetailData } from '@/constants/projectDetailData';
+import { mapState } from 'vuex';
+import { projectData } from '@/constants/project/projectData';
+import { projectDetailData } from '@/constants/project/projectDetailData';
 
 export default {
   name: 'Project',
@@ -44,12 +36,21 @@ export default {
   data(){
     return{
       isProjectDetailPop: false,
-      projectDetailItemData: {}
+      projectDetailItemData: {},
     }
   },
   computed: {
+    ...mapState({
+      subMenuId: state => state.common.subMenuId,
+    }),
     projectData(){
-      return projectData.reverse();
+      const dataList = projectData.sort((a, b) =>  b.id - a.id);
+      if(!this.subMenuId || this.subMenuId == 'All'){
+        return dataList;
+      }else{
+        const result = dataList.filter(item => item.catagory == this.subMenuId);
+        return result;
+      }
     },
   },
   methods: {
@@ -65,7 +66,7 @@ export default {
 }
 </script>
 <style scoped>
-.section_comm{padding:50px 12px 30px}
+.section_comm{padding:40px 12px 30px}
 
 .list_project{overflow:hidden}
 .list_project >>> li{float:left;width:25%;margin-bottom:30px}
