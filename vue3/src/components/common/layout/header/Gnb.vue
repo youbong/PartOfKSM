@@ -46,6 +46,7 @@ export default {
       return { name : menu1ItemData.menuClassNm };
     },
     onClickSubMenu( selectedSubMenuId ){
+      this.$emit('onClickSubMenu',selectedSubMenuId);
       this.$store.dispatch(CHANGE_SUB_MENU_ACTION, selectedSubMenuId);
     }
   }
@@ -66,8 +67,10 @@ export default {
 .gnb_ksm >>> .list_snb li{display:inline-block;vertical-align:top}
 .gnb_ksm >>> .list_snb .link_snb{display:block;padding:10px 14px 9px;font-size:15px;line-height:21px;outline:none}
 
-@media all and (max-width:800px){
+@media all and (max-width:800px){  /* mobile */
   .list_gnb .link_gnb{width:auto;padding:20px 10px;font-size:14px}
+  .gnb_ksm >>> .snb_ksm{left:0;right:0}
+  .gnb_ksm >>> .list_snb{text-align:left}
 }
 @media all and (max-width:1000px){
   .list_gnb{padding-right:0}

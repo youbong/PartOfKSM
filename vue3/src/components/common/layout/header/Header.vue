@@ -6,7 +6,7 @@
           <img :src="logoUrl" class="img_logo" alt="">
         </router-link>
       </h1>
-      <Gnb/>
+      <Gnb @onClickSubMenu="$emit('onClickSubMenu', id)"/>
     </div>
   </div>
 </template>

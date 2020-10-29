@@ -74,7 +74,8 @@ html::-webkit-scrollbar{display:none}
 .theme_blue .foot_ksm{background-color:#D5E7F2}
 .theme_blue .tit_profile{color:#35648C;border-bottom:1px solid #35648C}
 .theme_blue .tit_point:after{background-color:#BFB68A;opacity:.25}
-@media all and (max-width:1000px){ 
+
+@media all and (max-width:1000px){  /* mobile */
   .theme_modern .cont_profile,
   .theme_mint .cont_profile,
   .theme_blue .cont_profile{background-color:#fff}
@@ -91,8 +92,10 @@ html::-webkit-scrollbar{display:none}
 
 .tbl_comm{border-top:1px solid #0D0D0D}
 .tbl_comm table{min-width:100%;border:0 none;border-collapse:collapse;border-spacing:0;table-layout:fixed}
-.tbl_comm thead th{padding:15px 12px;border-bottom:1px solid #e1e1e1;font-weight:normal;font-size:13px;line-height:18px;letter-spacing:-.05em;background-color:#fbfbfb;color:#0D0D0D}
-.tbl_comm tbody td{padding:15px 24px;border-bottom:1px solid #e1e1e1;font-size:13px;line-height:18px;letter-spacing:-.05em}
+.tbl_comm thead th,
+.tbl_comm tbody td{border-bottom:1px solid #e1e1e1;font-size:13px;line-height:18px;letter-spacing:-.05em;word-wrap:break-word;word-break:keep-all}
+.tbl_comm thead th{padding:15px 12px;font-weight:normal;background-color:#fbfbfb;color:#0D0D0D}
+.tbl_comm tbody td{padding:15px 24px}
 .tbl_comm .align_center{text-align:center}
 
 /* 포인트 스타일 타이틀 */
@@ -100,21 +103,23 @@ html::-webkit-scrollbar{display:none}
 .tit_point:after{display:block;height:12px;margin:-14px -8px 0;border-radius:4px;content:''}
 
 /* list_dot */
-.list_dot li{position:relative;padding-left:10px}
+.list_dot li{position:relative;padding-left:10px;letter-spacing:-.02em}
 .list_dot li:after{position:absolute;top:13px;left:0;width:2px;height:2px;background-color:#0D0D0D;content:''}
 
 /* list_basic */
 .list_basic{overflow:hidden}
-.list_basic dt{float:left;padding:4px 8px 2px;font-size:11px;line-height:14px;border:1px solid #e1e1e1;border-radius:4px}
-.list_basic dd{overflow:hidden;padding-left:10px;font-size:14px;line-height:22px;word-wrap:break-word;word-break:keep-all}
+.list_basic dt{float:left;padding:3px 8px 1px;font-size:11px;line-height:14px;border:1px solid #e1e1e1;border-radius:4px}
+.list_basic dd{overflow:hidden;padding-left:10px;font-size:14px;line-height:20px;word-wrap:break-word;word-break:keep-all;letter-spacing:-.02em}
 .list_basic dt + dd + dt,
 .list_basic dt + dd + dt + dd{margin-top:8px}
 .list_basic + .tbl_head{margin-top:25px}
 
 /* list_dictionary */
 .list_dictionary dl{overflow:hidden}
-.list_dictionary dt{float:left;font-size:15px;line-height:20px}
-.list_dictionary dd{overflow:hidden;padding-left:15px;font-size:15px;line-height:20px}
+.list_dictionary dt,
+.list_dictionary dd{font-size:15px;line-height:20px}
+.list_dictionary dt{float:left}
+.list_dictionary dd{overflow:hidden;padding-left:15px;letter-spacing:-.02em}
 .list_dictionary+ .list_dictionary{margin-top:20px}
 
 /* list_detail */
@@ -122,3 +127,24 @@ html::-webkit-scrollbar{display:none}
 .list_detail dd{display:block;padding-left:10px;font-size:15px;line-height:28px}
 .list_detail dd + dd{margin-top:12px}
 .list_detail + .list_detail{margin-top:40px}
+
+@media all and (max-width:800px){  /* mobile */
+  .tbl_head .tit_head{font-size:13px}
+  .tbl_head .desc_tip{padding-top:6px;font-size:11px;line-height:14px}
+
+  .tbl_comm thead th,
+  .tbl_comm tbody td{padding:8px 8px;font-size:12px;line-height:16px}
+
+  .tit_point{padding:0 6px}
+  .tit_point:after{height:10px;margin:-12px -6px 0}
+
+  .list_basic dt{padding:2px 8px 0}
+  .list_basic dd{font-size:13px;line-height:18px}
+
+  .list_dictionary .dt_full_mo{display:inline-block;float:none;margin-bottom:12px;vertical-align:top}
+  .list_dictionary dt,
+  .list_dictionary dd{font-size:14px;line-height:18px;}
+
+  .list_detail dt{font-size:16px;line-height:18px}
+  .list_detail dd{font-size:14px;line-height:22px}
+}

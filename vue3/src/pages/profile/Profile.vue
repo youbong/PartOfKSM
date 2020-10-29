@@ -25,7 +25,7 @@
           <dd>경기도 용인시 신갈동</dd>
         </dl>
         <dl class="list_dictionary">
-          <dt class="tit_point">Recent Company Information</dt>
+          <dt class="tit_point dt_full_mo">Recent Company Information</dt>
           <dd>공동체 내 전반적인 사내 그룹웨어 시스템 플랫폼 개발</dd>
         </dl>
       </div>
@@ -73,9 +73,9 @@
             <div class="tbl_comm tbl_view">
               <table>
                 <colgroup>
-                  <col style="width:200px">
+                  <col style="width:20%">
                   <col>
-                  <col style="width:100px">
+                  <col style="width:10%">
                 </colgroup>
                 <thead>
                   <tr>
@@ -102,7 +102,7 @@
             <div v-if="item.projectDataList" class="tbl_comm tbl_view">
               <table>
                 <colgroup>
-                  <col style="width:200px">
+                  <col style="width:35%">
                   <col>
                 </colgroup>
                 <thead>
@@ -140,13 +140,11 @@ import PageWithLayout from '@/components/common/layout/PageWithLayout';
 import JobItem from '@/components/profile/JobItem';
 import CoverLetter from '@/components/profile/CoverLetter';
 
-import { mapState } from 'vuex';
-import { CHANGE_SUB_MENU_ACTION } from '@/store';
 import { historyDataList } from '@/constants/profile/profileHistoryData';
 import { performanceDataList, performanceSummaryData } from '@/constants/profile/profilePerformanceData';
 import { coverLetterData } from '@/constants/profile/profileCoverLetter';
 
-import Scrolled from '@/mixins/Scrolled'
+import Scrolled from '@/mixins/Scrolled';
 
 export default {
   name: 'Profile',
@@ -157,9 +155,6 @@ export default {
     CoverLetter
   },
   computed: {
-    ...mapState({
-      subMenuId: state => state.common.subMenuId,
-    }),
     historyDataList(){
       return historyDataList;
     },
@@ -173,23 +168,7 @@ export default {
       return coverLetterData;
     },
   },
-  watch:{
-    onSectionNm(){
-      this.$store.dispatch(CHANGE_SUB_MENU_ACTION,this.onSectionNm);
-    }
-  },
   methods:{
-    sectionClassOn( sectionId ){
-      if(sectionId == this.subMenuId){
-        // this.setSectionOn(this.$refs[sectionId]);
-        return 'on';
-      }
-      return '';
-    },
-    // setSectionOn(target){
-    //   if(!target || !target.offsetTop) return;
-    //   window.scrollTo( 0,target.offsetTop - 120 );
-    // },
     skillPointStar(skillPoint){
       switch (skillPoint) {
         case 'Ⅰ':
@@ -260,6 +239,18 @@ export default {
 .profile_item .list_performance{margin-top:4px}
 .profile_item .list_performance li{display:inline-block;position:relative;margin:6px 6px 0 0;padding:2px 10px;border-radius:4px;background-color:#eee;vertical-align:top}
 .profile_item .list_performance li .ico_ksm{position:absolute;top:-6px;left:4px}
+
+@media all and (max-width:800px){  /* mobile */
+  .profile_item .tit_profile{padding-bottom:8px;font-size:16px;line-height:18px}
+  .profile_item .tit_profile + .list_exprience,
+  .profile_item .tit_profile + .tit_point{margin-top:20px}
+
+  .profile_item strong.tit_point{font-size:16px}
+  .profile_item strong.tit_point + dl{margin-top:15px}
+
+  .profile_item .list_performance li{margin:8px 8px 0 0;padding:6px 10px;font-size:13px}
+  .profile_item + .profile_item{margin-top:50px}
+}
 
 /* 설명 리스트 */
 .profile_item .list_dot{margin-top:4px}

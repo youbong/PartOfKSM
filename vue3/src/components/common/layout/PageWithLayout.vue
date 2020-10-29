@@ -1,6 +1,7 @@
 <template>
   <div id="KsmWrap" :class="['wrap_ksm','theme_'+themeData]">
-    <Header :themeData="themeData" />
+    <Header :themeData="themeData"
+      @onClickSubMenu="$emit('onClickSubMenu', id)" />
     <hr class="hide">
     <Content>
       <slot/>
