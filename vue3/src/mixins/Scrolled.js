@@ -3,31 +3,20 @@ import { CHANGE_SUB_MENU_ACTION } from '@/store';
 
 const scrolled = {
   mounted(){
-    if(this.$route.name != 'profile') {
-      window.removeEventListener('resize', this.onResize);
-      window.removeEventListener('scroll', this.onScroll);
-    }else{
-      this.bindEventResize();
-      // this.bindEventScroll();
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('scroll', this.onScroll);
+
+
+    if(this.$route.name == 'profile') {
       window.addEventListener('resize', this.onResize);
       window.addEventListener('scroll', this.onScroll);
+      this.bindEventResize();
     }
   },
-  // beforeDestroy(){
-  //   if(this.$route.name != 'profile') {
-  //     window.removeEventListener('resize', this.onResize);
-  //     window.removeEventListener('scroll', this.onScroll);
-  //   }else{
-  //     window.addEventListener('resize', this.onResize);
-  //     window.addEventListener('scroll', this.onScroll);
-  //   }
-  // },
-  updated(){
+  beforeDestroy(){
     if(this.$route.name != 'profile') {
       window.removeEventListener('resize', this.onResize);
       window.removeEventListener('scroll', this.onScroll);
-    }else{
-      this.bindEventScroll();
     }
   },
   data(){
@@ -44,6 +33,7 @@ const scrolled = {
   watch:{
     subMenuId(){
       // snb 클릭으로 활성화되었을때
+      if(this.$route.name != 'profile') return;
       if(this.subMenuId == this.onSectionNm) return;
       this.onSectionNm = this.subMenuId;
       this.setScrollAreaTop(this.subMenuId);
@@ -71,7 +61,6 @@ const scrolled = {
       }
     },
     bindEventResize(){
-      if(this.$route.name != 'profile') return;
       if(this.sectionValueList){
         this.sectionValueList = [];
       }
