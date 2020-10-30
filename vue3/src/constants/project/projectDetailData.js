@@ -273,11 +273,11 @@ export const projectDetailData = [
   {
     id: 13,
     catagory:'DkTechin',
-    title:'카카오 프렌즈 홈킷',
+    title:'카카오프렌즈 홈킷',
     companyNm:'디케이테크인',
     job: '기획 지원, ios 개발',
     date: '2018년 03월 ~ 재직중',
-    aim: '카카오 프렌즈 홈킷 IOT 기기 중 공기청정기, 가습기 App 개발',
+    aim: '카카오프렌즈 홈킷 IOT 기기 중 공기청정기, 가습기 App 개발',
     orientation: 'IOT 기능에 치중될 수 있는 서비스 내 각 os 별 특성을 감한안 UX 개선',
     jobDetialDataList: [
       'ios 앱 개발',
@@ -508,7 +508,7 @@ export const projectDetailData = [
   {
     id: 24,
     catagory:'DkTechin',
-    title:'카카오 프렌즈 재고 관리 프로세스 개편',
+    title:'카카오프렌즈 재고 관리 프로세스 개편',
     companyNm:'디케이테크인',
     job: '플랫폼 기획',
     date: '2018년 03월 ~ 재직중',

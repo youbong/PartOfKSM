@@ -86,7 +86,7 @@ export const projectData = [
   {
     id: 13,
     catagory:'DkTechin',
-    title: '[IOS] 카카오 프렌즈 홈킷',
+    title: '[IOS] 카카오프렌즈 홈킷',
     desc: '카카오프렌즈 IOT 기기 앱 개발',
     img: 'images/14.png'
   },
@@ -162,7 +162,7 @@ export const projectData = [
   {
     id: 24,
     catagory:'DkTechin',
-    title: '[기획] 카카오 프렌즈 샵',
+    title: '[기획] 카카오프렌즈 샵',
     desc: '프렌즈 샵 상품관리 내 재고관리 프로세스 개선',
     img: 'images/25.png'
   },

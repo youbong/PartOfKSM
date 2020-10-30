@@ -1,7 +1,6 @@
 <template>
   <div id="KsmWrap" :class="['wrap_ksm','theme_'+themeData]">
-    <Header :themeData="themeData"
-      @onClickSubMenu="$emit('onClickSubMenu', id)" />
+    <Header :themeData="themeData" />
     <hr class="hide">
     <Content>
       <slot/>
@@ -39,6 +38,6 @@ export default {
     themeData(){
       return themeData;
     }
-  }
+  },
 }
 </script>

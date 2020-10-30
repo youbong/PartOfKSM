@@ -1,4 +1,4 @@
-export const themeData = 'blue';
+export const themeData = 'modern';
 // 테마
 //모던 테마 : modern
 //민트 테마 : mint

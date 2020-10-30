@@ -9,7 +9,7 @@
                v-for="( snbItem, index ) in item.subMenuData" :key="index"
               :subItemData="snbItem"
               :subMenuId="subMenuId"
-              @onClickSubMenu="onClickSubMenu"/>
+              @onClickSubMenu="onClickSubMenu(snbItem.menuId)"/>
           </ul>
         </div>
       </li>
@@ -46,9 +46,8 @@ export default {
       return { name : menu1ItemData.menuClassNm };
     },
     onClickSubMenu( selectedSubMenuId ){
-      this.$emit('onClickSubMenu',selectedSubMenuId);
       this.$store.dispatch(CHANGE_SUB_MENU_ACTION, selectedSubMenuId);
-    }
+    },
   }
 }
 </script>

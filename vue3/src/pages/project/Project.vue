@@ -13,6 +13,8 @@
     <ProjectDetailPopup
       v-if="isProjectDetailPop"
       :itemData="projectDetailItemData"
+      @onClickPrevPop="onClickPrevPop"
+      @onClickNextPop="onClickNextPop"
       @onClickClosePop="onClickCloseProjectPop"/>
   </PageWithLayout>
 </template>
@@ -55,8 +57,28 @@ export default {
   },
   methods: {
     onClickProjectPop( selectedId ){
-      this.projectDetailItemData = projectDetailData.filter(item => item.id == selectedId)[0];
+      // this.projectDetailItemData = projectDetailData.filter(item => item.id == selectedId)[0];
+      this.setProjectDetailData( selectedId );
       this.isProjectDetailPop = true;
+    },
+    onClickPrevPop(){
+      const nowIndex = this.projectDetailItemData.id;
+      if(this.projectData.length == nowIndex){
+        this.setProjectDetailData( 1 );
+      }else{
+        this.setProjectDetailData( nowIndex+1 );
+      }
+    },
+    onClickNextPop(){
+      const nowIndex = this.projectDetailItemData.id;
+      if(nowIndex == 1){
+        this.setProjectDetailData( this.projectData.length );
+      }else{
+        this.setProjectDetailData( nowIndex-1 );
+      }
+    },
+    setProjectDetailData( id ){
+      this.projectDetailItemData =  projectDetailData.find(item => item.id == id);
     },
     onClickCloseProjectPop(){
       this.projectDetailItemData = {};

@@ -2,7 +2,7 @@
   <PageWithLayout>
     <div class="section_comm">
       <h2 class="screen_out">프로필</h2>
-      <div :class="['profile_item profile_info',sectionClassOn('Info')]" ref="Info">
+      <div class="profile_item profile_info" ref="Info">
         <h3 class="tit_profile">INFO</h3>
         <dl class="list_dictionary">
           <dt class="tit_point">Name</dt>
@@ -29,7 +29,7 @@
           <dd>공동체 내 전반적인 사내 그룹웨어 시스템 플랫폼 개발</dd>
         </dl>
       </div>
-      <div :class="['profile_item profile_skill',sectionClassOn('Skill')]" ref="Skill">
+      <div class="profile_item profile_skill" ref="Skill">
         <h3 class="tit_profile">SKILL</h3>
         <dl class="list_detail">
           <dt class="tit_point">Performance</dt>
@@ -49,7 +49,7 @@
           </dd>
         </dl>
       </div>
-      <div :class="['profile_item profile_exprience',sectionClassOn('Exprience')]" ref="Exprience">
+      <div class="profile_item profile_exprience" ref="Exprience">
         <h3 class="tit_profile">EXPRIENCE</h3>
         <ul class="list_exprience">
           <li v-for="(item, index) in historyDataList" :key="index">
@@ -122,7 +122,7 @@
           </li>
         </ul>
       </div>
-      <div :class="['profile_item profile_coverletter',sectionClassOn('CoverLetter')]" ref="CoverLetter">
+      <div class="profile_item profile_coverletter" ref="CoverLetter">
         <h3 class="tit_profile">COVERLETTER</h3>
         <strong class="tit_point">COVERLETTER</strong>
         <CoverLetter />

@@ -6,7 +6,7 @@
           <img :src="logoUrl" class="img_logo" alt="">
         </router-link>
       </h1>
-      <Gnb @onClickSubMenu="$emit('onClickSubMenu', id)"/>
+      <Gnb/>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
       const themeUrl = this.themeData ? '_'+this.themeData:'';
       return `/assets/images/logo_ksm${themeUrl}.png`;
     }
-  }
+  },
 }
 </script>
 <style scoped>

@@ -3,23 +3,25 @@ import { CHANGE_SUB_MENU_ACTION } from '@/store';
 
 const scrolled = {
   mounted(){
+    if(this.$route.name != 'profile') return;
     this.bindEventResize();
     this.bindEventScroll();
     window.addEventListener('resize', this.onResize);
     window.addEventListener('scroll', this.onScroll);
   },
   beforeDestroy(){
+    if(this.$route.name != 'profile') return;
     window.addEventListener('resize', this.onResize);
     window.addEventListener('scroll', this.onScroll);
   },
   updated(){
+    if(this.$route.name != 'profile') return;
     this.bindEventScroll();
   },
   data(){
     return{
       onSectionNm: '',
       sectionValueList: [],
-      sectionsTop: [],
     }
   },
   computed:{
@@ -29,57 +31,61 @@ const scrolled = {
   },
   watch:{
     subMenuId(){
-      const winT = window.scrollY;
-      // 스크롤 이동해서 활성화된 메뉴 말고 snb 클릭으로 활성화되었을때
-      if(this.subMenuId != this.onSectionNm){
-        this.setSectionOn(this.subMenuId);
-      }else if(winT !== this.sectionValueList[this.subMenuId]){ // 해당영역에있는 snb 클릭시 해당 영역의 top으로
-        this.setSectionOn(this.subMenuId);
-      }
+      if(this.subMenuId == this.onSectionNm) return;
+      console.log('snb 클릭으로 활성화되었을때');
+      this.setScrollAreaTop(this.subMenuId);
     },
-    onSectionNm(){ // 스크롤 올라간 영역 snb 메뉴 활성화
-      this.$store.dispatch(CHANGE_SUB_MENU_ACTION,this.onSectionNm);
-    }
   },
   methods:{
-    sectionClassOn( sectionId ){
-      if(sectionId == this.subMenuId){
-        return 'on';
-      }
-      return '';
-    },
-    setSectionOn( targetId ){
-      if(!targetId || !this.sectionValueList) return;
-      const goToTop = this.sectionValueList.find(item => item[targetId]);
-      window.scrollTo( 0, goToTop[targetId] );
-    },
     bindEventScroll(){
       if(!this.sectionValueList) return;
       const winT = window.scrollY;
       const sectionLength = this.sectionValueList.length;
 
-      if(winT < this.sectionsTop[1]){ // 첫번째 항목 영역
-        this.onSectionNm = this.getObjectKey(0);
-      }else if(winT > this.sectionsTop[sectionLength-1]){ // 마지막 항목 영역
-        this.onSectionNm = this.getObjectKey(sectionLength-1);
-      }else{ // 중간 항목 영역들
-        this.sectionsTop.find((item,index)=>{
-          if(item <= winT && this.sectionsTop[index+1] > winT){
-            this.onSectionNm = this.getObjectKey(index);
+      if(winT > this.getTopByIndex( sectionLength - 1 )){ // 마지막 항목 영역
+        this.onSectionNm = this.getMenuNmByIndex(sectionLength-1);
+        this.$store.dispatch(CHANGE_SUB_MENU_ACTION,this.onSectionNm);
+        return;
+
+      }else{
+        this.sectionValueList.find((item,index)=>{
+          if(index == sectionLength - 1) return;
+          if(item.top <= winT && this.getTopByIndex( index+1 ) > winT){
+            this.onSectionNm = this.getMenuNmByIndex(index);
+            this.$store.dispatch(CHANGE_SUB_MENU_ACTION,this.onSectionNm);
           }
         });
+        return;
       }
     },
     bindEventResize(){
-      this.sectionsTop = Object.values(this.$refs).map(item => item.offsetTop - 120);
+      if(this.$route.name != 'profile') return;
+      if(this.sectionValueList){
+        this.sectionValueList = [];
+      }
       for (const [key, value] of Object.entries(this.$refs)) {
+        if(!value) return;
         var obj = {};
-        obj[key] = value.offsetTop - 120;
+        // obj[key] = value.offsetTop - 120;
+        obj.menuNm = key;
+        obj.top = value.offsetTop - 120;
         this.sectionValueList.push(obj);
       }
+      this.sectionValueList[0].top = 0;
     },
-    getObjectKey( index ){
-      return Object.keys(this.sectionValueList[index])[0];
+    getMenuNmByIndex( index ){
+      return this.sectionValueList[index].menuNm;
+    },
+    getTopById( id ){
+      return this.sectionValueList.find(item => item.menuNm == id).top;
+    },
+    getTopByIndex( index ){
+      return this.sectionValueList[index].top;
+    },
+    setScrollAreaTop( targetId ){
+      if(!targetId || !this.sectionValueList) return;
+      const goToTop = this.getTopById( targetId );
+      window.scrollTo( 0, goToTop );
     },
     onScroll() {
       this.bindEventScroll();
