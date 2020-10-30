@@ -1,8 +1,13 @@
 const path = require('path')
 
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/static/' : '/',
-    outputDir: path.resolve(__dirname, '../../portfolio/static'),
+    // devServer: {
+    //     host: '0.0.0.0',
+    //     port: '9400',
+    //     disableHostCheck: true,
+    // }
+    // publicPath: process.env.NODE_ENV === 'production' ? '/static/' : '/',
+    // outputDir: path.resolve(__dirname, '../../portfolio/static'),
 //    20201028 검토 사항
 //    index.html -> css 경로 : static/assets/css/common.css
 //    public assets image 는 common.css 에서 사용하는 이미지만
