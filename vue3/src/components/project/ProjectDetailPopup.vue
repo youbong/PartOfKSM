@@ -58,9 +58,9 @@
         </div>
         <div class="layer_foot">
           <div class="group_btn">
-            <button type="button" class="btn_layer btn_prev" @click="$emit('onClickPrevPop')">이전</button>
+            <button type="button" class="btn_layer btn_prev" @click="$emit('onClickPrevPop')"><span class="ico_ksm ico_prev">이전</span></button>
             <button type="button" class="btn_layer btn_close" @click="$emit('onClickClosePop')">닫기</button>
-            <button type="button" class="btn_layer btn_next" @click="$emit('onClickNextPop')">다음</button>
+            <button type="button" class="btn_layer btn_next" @click="$emit('onClickNextPop')"><span class="ico_ksm ico_next">다음</span></button>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default{
 
 .project_layer{font-size:0;text-align:center;white-space:nowrap}
 .project_layer:after{display:inline-block;height:100%;vertical-align:middle;content:''}
-.inner_layer_project{display:inline-block;max-width:838px;max-height:100%;vertical-align:middle;white-space:normal}
+.inner_layer_project{display:inline-block;max-width:1200px;max-height:100%;vertical-align:middle;white-space:normal}
 .area_layer{position:relative;z-index:210;padding:30px;background-color:#fff;text-align:left}
 
 .layer_head{padding-bottom:8px;border-bottom:1px solid #222}
@@ -101,8 +101,14 @@ export default{
 .layer_body .thumb_layer .img_g{width:100%}
 
 .layer_foot{margin-top:30px;text-align:center}
-.layer_foot .btn_layer{display:inline-block;min-width:104px;height:32px;padding:6px 16px 8px;border-radius:2px;border:1px solid #bbb;font-weight:normal;font-size:12px;line-height:18px;background-color:#fff;color:#555;vertical-align:top}
-/* .layer_foot .btn_close{display:inline-block;min-width:104px;height:32px;padding:6px 16px 8px;border-radius:2px;border:1px solid #bbb;font-weight:normal;font-size:12px;line-height:18px;background-color:#fff;color:#555;vertical-align:top} */
+.layer_foot .group_btn{position:relative}
+.layer_foot .btn_layer{display:inline-block;height:32px;padding:6px 12px 8px;border-radius:2px;border:1px solid #bbb;font-weight:normal;font-size:12px;line-height:18px;background-color:#fff;color:#555;vertical-align:top}
+.layer_foot .btn_layer .ico_ksm{margin:3px 0}
+.layer_foot .btn_prev,
+.layer_foot .btn_next{position:absolute;top:0}
+.layer_foot .btn_prev{left:0}
+.layer_foot .btn_next{right:0}
+.layer_foot .btn_close{min-width:104px}
 
 @media all and (max-width:500px){  /* mobile */
   .project_layer{padding:80px 0 0 0}
@@ -115,10 +121,6 @@ export default{
   .layer_head .txt_company{font-size:11px}
   .layer_body{height:100%;max-height:calc(100vh - 80px - 36px - 56px - 56px - 20px)}
   .layer_foot{margin-top:16px}
-  .layer_foot .group_btn{padding-left:16px}
-  .layer_foot .btn_layer{width:33.333%;min-width:inherit;height:40px;padding:11px 0 9px;border-radius:4px;font-weight:bold;font-size:15px;line-height:20px}
-  .layer_foot .btn_layer:first-child{margin-left:-16px}
-  .layer_foot .btn_layer+.btn_layer{margin-left:8px}
-  /* .layer_foot .btn_close{} */
+  .layer_foot .btn_layer{height:40px;padding:11px 16px 9px;border-radius:4px;font-weight:bold;font-size:15px;line-height:20px}
 }
 </style>

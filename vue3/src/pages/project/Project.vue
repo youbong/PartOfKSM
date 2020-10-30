@@ -12,6 +12,7 @@
     </div>
     <ProjectDetailPopup
       v-if="isProjectDetailPop"
+      v-scroll-lock="isProjectDetailPop"
       :itemData="projectDetailItemData"
       @onClickPrevPop="onClickPrevPop"
       @onClickNextPop="onClickNextPop"

@@ -31,8 +31,8 @@ const scrolled = {
   },
   watch:{
     subMenuId(){
+      // snb 클릭으로 활성화되었을때
       if(this.subMenuId == this.onSectionNm) return;
-      console.log('snb 클릭으로 활성화되었을때');
       this.setScrollAreaTop(this.subMenuId);
     },
   },

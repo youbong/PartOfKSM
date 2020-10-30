@@ -10,15 +10,15 @@ const router = new Router({
   // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: routerPath.PROFILE,
-      name:'/',
-      meta: {
-        menuNm: 'PROFILE',
-      },
-      props: true,
-      component: routerComponent.PROFILE,
-    },
+    // {
+    //   path: routerPath.PROFILE,
+    //   name:'/',
+    //   meta: {
+    //     menuNm: 'PROFILE',
+    //   },
+    //   props: true,
+    //   component: routerComponent.PROFILE,
+    // },
     {
       path: routerPath.PROFILE,
       name:'profile',
