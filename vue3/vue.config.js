@@ -1,9 +1,10 @@
 const path = require('path')
 
 module.exports = {
+    // 기존 방식(node)로 배포 하기로 변경 본 파일은 신경쓰지 않아도 무방함
     // devServer: {
     //     host: '0.0.0.0',
-    //     port: '9400',
+    //     port: '9401',
     //     disableHostCheck: true,
     // }
     // publicPath: process.env.NODE_ENV === 'production' ? '/static/' : '/',
