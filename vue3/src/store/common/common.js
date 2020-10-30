@@ -17,7 +17,6 @@ export default {
     [CHANGE_SUB_MENU_MUTATION](state, payload) {
       const { changedId } = payload;
       state.subMenuId = changedId;
-      state.isChangedSubMenut = true;
     },
   }
 }

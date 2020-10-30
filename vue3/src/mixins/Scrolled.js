@@ -3,20 +3,32 @@ import { CHANGE_SUB_MENU_ACTION } from '@/store';
 
 const scrolled = {
   mounted(){
-    if(this.$route.name != 'profile') return;
-    this.bindEventResize();
-    this.bindEventScroll();
-    window.addEventListener('resize', this.onResize);
-    window.addEventListener('scroll', this.onScroll);
+    if(this.$route.name != 'profile') {
+      window.removeEventListener('resize', this.onResize);
+      window.removeEventListener('scroll', this.onScroll);
+    }else{
+      this.bindEventResize();
+      // this.bindEventScroll();
+      window.addEventListener('resize', this.onResize);
+      window.addEventListener('scroll', this.onScroll);
+    }
   },
-  beforeDestroy(){
-    if(this.$route.name != 'profile') return;
-    window.addEventListener('resize', this.onResize);
-    window.addEventListener('scroll', this.onScroll);
-  },
+  // beforeDestroy(){
+  //   if(this.$route.name != 'profile') {
+  //     window.removeEventListener('resize', this.onResize);
+  //     window.removeEventListener('scroll', this.onScroll);
+  //   }else{
+  //     window.addEventListener('resize', this.onResize);
+  //     window.addEventListener('scroll', this.onScroll);
+  //   }
+  // },
   updated(){
-    if(this.$route.name != 'profile') return;
-    this.bindEventScroll();
+    if(this.$route.name != 'profile') {
+      window.removeEventListener('resize', this.onResize);
+      window.removeEventListener('scroll', this.onScroll);
+    }else{
+      this.bindEventScroll();
+    }
   },
   data(){
     return{
@@ -33,15 +45,15 @@ const scrolled = {
     subMenuId(){
       // snb 클릭으로 활성화되었을때
       if(this.subMenuId == this.onSectionNm) return;
+      this.onSectionNm = this.subMenuId;
       this.setScrollAreaTop(this.subMenuId);
     },
   },
   methods:{
     bindEventScroll(){
-      if(!this.sectionValueList) return;
+      if(this.sectionValueList.length == 0) return;
       const winT = window.scrollY;
       const sectionLength = this.sectionValueList.length;
-
       if(winT > this.getTopByIndex( sectionLength - 1 )){ // 마지막 항목 영역
         this.onSectionNm = this.getMenuNmByIndex(sectionLength-1);
         this.$store.dispatch(CHANGE_SUB_MENU_ACTION,this.onSectionNm);
@@ -66,7 +78,6 @@ const scrolled = {
       for (const [key, value] of Object.entries(this.$refs)) {
         if(!value) return;
         var obj = {};
-        // obj[key] = value.offsetTop - 120;
         obj.menuNm = key;
         obj.top = value.offsetTop - 120;
         this.sectionValueList.push(obj);
