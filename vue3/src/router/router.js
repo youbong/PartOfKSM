@@ -9,6 +9,17 @@ Vue.use(Router)
 const router = new Router({
   // mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior(to, from, savedPosition) {
+    if (from.path === to.path) {
+      return;
+    }
+
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
   routes: [
     // {
     //   path: routerPath.PROFILE,
